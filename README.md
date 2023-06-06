@@ -43,7 +43,7 @@ You can speed up this last step by adding ``` -j8 ``` flag to the previous comma
 
 # Running Computations
 
-To run a computation, you first need to compile the source code. We have provided template source codes in ``` Programs/Source ``` for the multiple functionalities benchmarked in the paper. For example ```rc_adder.mpc ``` program is as follows
+To run a computation, you first need to compile the source code. For example ```rc_adder.mpc ``` program is as follows
 
 ```
 from circuit import Circuit
@@ -60,7 +60,7 @@ This will take two 64-bit numbers from party 0 as input, adds them using a rippl
 ./compile.py -B 64 rc_adder
 ```
 
-Then to run the program on the same machine, run:
+where ``` -B ``` indicates the bit-length of the input. Then to run the program on the same machine, run:
 
 ``` 
 ./multi-replicated-bin-party -I -p 0 rc_adder
@@ -74,6 +74,10 @@ Then to run the program on the same machine, run:
 ./multi-replicated-bin-party -I -p 2 rc_adder
 ```
 
-in separate terminals. To run on separate machines run the same command on each host with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). 
+in separate terminals. To run on separate machines,  the same command on each host with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). The ```-I``` flag prompts the user for inputs in an interactive mode. Omit this flag to read inputs from ``` Player-Data/Input-P<party number>-0 ``` in text format. 
 
+We have provided our depth-optimized circuits using multi-fan-in AND gates for multiple functionalities in ``` Programs/Circuits ```. Follow the same instructions to compile and run a new computation by simply substituting the circuit in the source code with the desired one and adjusting the input bit-length. You can find more examples and template programs in ``` Programs/Source ```. 
+
+
+# Docker
 
