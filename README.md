@@ -10,7 +10,7 @@ The implementation here is a fork of [MP-SPDZ](https://github.com/data61/MP-SPDZ
 
 We note that the changes introduced here are not specific to Trifecta and the underlying framework can be used to benchmark any protocol that supports computation of multi-fan-in AND gates [].
 
-# Compilation 
+# <a name="compilation"></a> Compilation 
 
 Please follow the instructions in the [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master) to install all the requirements. On an Ubuntu machine, the following one-liner should suffice:
 
@@ -74,4 +74,6 @@ Then to run the program on the same machine, run:
 ./multi-replicated-bin-party -I -p 2 rc_adder
 ```
 
-in separate terminals. 
+in separate terminals. To run on separate machines run the same command on each host with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). 
+
+
