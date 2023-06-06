@@ -38,11 +38,23 @@ make multi-replicated-bin-party.x
 
 You can speed up this last step by adding ``` -j8 ``` flag to the previous command. 
 
+Trifecta requires private communication between the parties to prevent eavesdroppers from reconstructing the secret. MP-SPDZ uses OpenSSL to establish secure channels. To generate the necessary certificates and keys run
 
+```
+Scripts/setup-ssl.sh [<number of parties>]
+c_rehash Player-Data
+```
+To run the protocol on separate instances over WAN, specify the IP address and port number of each machine inside ```Player-Data/ip-file``` with the following format
+
+```
+<host0>[:<port0>]
+<host1>[:<port1>]
+...
+```
 
 ## Docker
 
-The command below creates a docker image installing all the dependencies and generates player certificates and keys.
+The command below builds a docker image with all the dependencies and required player data.
 
 ```
 docker build --tag mpspdz:trifecta .
@@ -68,7 +80,7 @@ This will take two 64-bit numbers from party 0 as input, adds them using a rippl
 ./compile.py -B 64 rc_adder
 ```
 
-where ``` -B ``` indicates the bit-length of the input. Then to run the program on the same machine, run:
+where ``` -B ``` indicates the bit-length of the input. Then to run the program on the same machine, run
 
 ``` 
 ./multi-replicated-bin-party -I -p 0 rc_adder
@@ -85,4 +97,3 @@ where ``` -B ``` indicates the bit-length of the input. Then to run the program 
 in separate terminals. To run on separate machines,  the same command on each host with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). The ```-I``` flag prompts the user for inputs in an interactive mode. Omit this flag to read inputs from ``` Player-Data/Input-P<party number>-0 ``` in text format. 
 
 We have provided our depth-optimized circuits using multi-fan-in AND gates for multiple functionalities in ``` Programs/Circuits ```. Follow the same instructions to compile and run a new computation by simply substituting the circuit in the source code with the desired one and adjusting the input bit-length. You can find more examples and template programs in ``` Programs/Source ```. 
-
