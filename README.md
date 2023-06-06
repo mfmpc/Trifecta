@@ -12,14 +12,13 @@ We note that the changes introduced here are not specific to Trifecta and the un
 
 # <a name="compilation"></a> Compilation 
 
-Please follow the instructions in the [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master) to install all the requirements. On an Ubuntu machine, the following one-liner should suffice:
+Please follow the instructions in the [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master) to install all the requirements. On an Ubuntu machine, the following one-liner should be enough:
 
 ```
 sudo apt-get install automake build-essential clang cmake git libboost-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3 yasm m4
 ```
 
-
-Since this is a fork of an older version of MP-SPDZ, there is a nuance additional configuration step required to run the software not . We rely on the MPIR Library for integer operations. The MPIR folder contains the latest release of the library provided here for convinience. To complete the installation:
+Since this is a fork of an older version of MP-SPDZ, there is a nuance additional configuration step required to run the software. We rely on the MPIR Library for integer operations. The MPIR folder contains the latest release of the library provided here for convinience. To complete the installation 
 
 ```
 cd mpir
@@ -31,7 +30,7 @@ make check && make install
 ldconfig
 ```
 
-Run the following command to compile the binary for the Trifecta party in the main directory
+Run the following command to compile the binary for the Trifecta machine in the main directory
 
 ```
 make multi-replicated-bin-party.x
@@ -39,6 +38,15 @@ make multi-replicated-bin-party.x
 
 You can speed up this last step by adding ``` -j8 ``` flag to the previous command. 
 
+
+
+## Docker
+
+The command below creates a docker image installing all the dependencies and generates player certificates and keys.
+
+```
+docker build --tag mpspdz:trifecta .
+```
 
 
 # Running Computations
@@ -77,7 +85,4 @@ where ``` -B ``` indicates the bit-length of the input. Then to run the program 
 in separate terminals. To run on separate machines,  the same command on each host with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). The ```-I``` flag prompts the user for inputs in an interactive mode. Omit this flag to read inputs from ``` Player-Data/Input-P<party number>-0 ``` in text format. 
 
 We have provided our depth-optimized circuits using multi-fan-in AND gates for multiple functionalities in ``` Programs/Circuits ```. Follow the same instructions to compile and run a new computation by simply substituting the circuit in the source code with the desired one and adjusting the input bit-length. You can find more examples and template programs in ``` Programs/Source ```. 
-
-
-# Docker
 
