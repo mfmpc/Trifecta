@@ -22,7 +22,7 @@ docker build --tag mpspdz:trifecta .
 
 Skip to the [next section](#computation) for how to run a program.
 
-Alternatively, you can follow the instructions in the [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master) to install all the requirements. Also see the [documentation](https://mp-spdz.readthedocs.io/en/latest/index.html) for FAQs and common issues. 
+Alternatively, you can follow the instructions in the [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master) repository to install all the requirements. Also see the [documentation](https://mp-spdz.readthedocs.io/en/latest/index.html) for FAQs and common issues. 
 
 On an Ubuntu machine, the following one-liner should suffice:
 
