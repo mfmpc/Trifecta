@@ -99,4 +99,6 @@ where ``` -B ``` indicates the bit-length of the input. Then to start the comput
 
 in separate terminals. To run on separate machines, use the same command with ``` --ip-file-name Player-Data/ip-file ``` where ip-file is as described in [Compilation](#compilation). The ```-I``` flag prompts the user for inputs in an interactive mode. Omit this flag to read inputs from ``` Player-Data/Input-P<party number>-0 ``` in text format. 
 
-We have provided our depth-optimized circuits using multi-fan-in AND gates for multiple functionalities in ``` Programs/Circuits ```. Follow the same instructions to compile and run a new computation by simply substituting the circuit in the source code with the desired one and adjusting the input bit-length. You can find more examples and template programs in ``` Programs/Source ```. 
+We have provided our depth-optimized circuits using multi-fan-in AND gates for multiple functionalities in ``` Programs/Circuits ```. Follow the same instructions to compile and run a new computation by simply substituting the circuit in the source code with the desired one and adjusting the input bit-length. 
+
+You can find more examples and template programs in ``` Programs/Source ```. 
