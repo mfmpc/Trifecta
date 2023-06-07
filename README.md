@@ -5,7 +5,7 @@ This is a software to benchmark Trifecta, a faster high-throughput three-party c
 The implementation here is a fork of [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master), a general toolkit to prototype and benchmark various multi-party computation (MPC) protocol. The vanilla MP-SPDZ doesn't support computations on multi-fan-in AND gates, required by protocols such as Trifecta. Therefore, we make multiple improvements in the code to enable this feature:
 
 1. We modify the built-in MP-SPDZ compiler to accept representations of Boolean circuits with multi-fan-in AND gates. The compiler thus generates a bytecode that is augmented to  include multi-fan-in instructions. For our use-case, we extend the [Bristol Fashion](https://homes.esat.kuleuven.be/~nsmart/MPC/) circuit format.
-2. Subsequently, the virtual machine is enhanced to parse and process the new multi-fan-in instructions in the bytecode in a backward-compatible manner. 
+2. Subsequently, the virtual machine is enhanced to parse and process the new multi-fan-in instructions in a backward-compatible manner. 
 3. We implement Trifecta on top of this upgraded toolchain for experimental evalution of our protocol and verify our build. 
 
 We note that the changes introduced here are not specific to Trifecta and the underlying framework can be used to benchmark any protocol that can compute multi-fan-in AND gates.
