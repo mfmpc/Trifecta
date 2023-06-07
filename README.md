@@ -1,6 +1,6 @@
 # Trifecta
 
-This is a software to benchmark Trifecta, a faster high-throughput three-party computation protocol. This is as part of the submission for PoPETS 23 where the theoretical work will be presented. 
+This is a software to benchmark Trifecta, a faster high-throughput three-party computation protocol. This is as part of the submission for PoPETS 23 where the paper will be presented. 
 
 The implementation here is a fork of [MP-SPDZ](https://github.com/data61/MP-SPDZ/tree/master), a general toolkit to prototype and benchmark various multi-party computation (MPC) protocol. The vanilla MP-SPDZ doesn't support computations on multi-fan-in AND gates, required by protocols such as Trifecta. Therefore, we make multiple improvements in the code to enable this feature:
 
